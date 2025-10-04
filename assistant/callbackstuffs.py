@@ -50,54 +50,54 @@ def text_to_url(event):
 
 _buttons = {
     "otvars": {
-        "text": "Other Variables to set for @TeamUltroid:",
+        "text": "Other Variables to set for @frzais:",
         "buttons": [
             [
-                Button.inline("Tᴀɢ Lᴏɢɢᴇʀ", data="taglog"),
-                Button.inline("SᴜᴘᴇʀFʙᴀɴ", data="cbs_sfban"),
+                Button.inline("Tag Logger", data="taglog"),
+                Button.inline("SuperFban", data="cbs_sfban"),
             ],
             [
-                Button.inline("Sᴜᴅᴏ Mᴏᴅᴇ", data="sudo"),
-                Button.inline("Hᴀɴᴅʟᴇʀ", data="hhndlr"),
+                Button.inline("Sudo Mode", data="sudo"),
+                Button.inline("Handler", data="hhndlr"),
             ],
             [
-                Button.inline("Exᴛʀᴀ Pʟᴜɢɪɴs", data="plg"),
-                Button.inline("Aᴅᴅᴏɴs", data="eaddon"),
+                Button.inline("Extra Plugins", data="plg"),
+                Button.inline("Addons", data="eaddon"),
             ],
             [
-                Button.inline("Eᴍᴏᴊɪ ɪɴ Hᴇʟᴘ", data="emoj"),
-                Button.inline("Sᴇᴛ ɢDʀɪᴠᴇ", data="gdrive"),
+                Button.inline("Emoji in Help", data="emoj"),
+                Button.inline("Set gDrive", data="gdrive"),
             ],
             [
-                Button.inline("Iɴʟɪɴᴇ Pɪᴄ", data="inli_pic"),
-                Button.inline("Sᴜᴅᴏ HNDLR", data="shndlr"),
+                Button.inline("Inline Pic", data="inli_pic"),
+                Button.inline("Sudo Handler", data="shndlr"),
             ],
-            [Button.inline("Dᴜᴀʟ Mᴏᴅᴇ", "cbs_oofdm")],
+            [Button.inline("Dual Mode", "cbs_oofdm")],
             [Button.inline("« Back", data="setter")],
         ],
     },
     "sfban": {
         "text": "SuperFban Settings:",
         "buttons": [
-            [Button.inline("FBᴀɴ Gʀᴏᴜᴘ", data="sfgrp")],
-            [Button.inline("Exᴄʟᴜᴅᴇ Fᴇᴅs", data="abs_sfexf")],
+            [Button.inline("Fban Group", data="sfgrp")],
+            [Button.inline("Exclude Feeds", data="abs_sfexf")],
             [Button.inline("« Back", data="cbs_otvars")],
         ],
     },
     "apauto": {
         "text": "This'll auto approve on outgoing messages",
         "buttons": [
-            [Button.inline("Aᴜᴛᴏ Aᴘᴘʀᴏᴠᴇ ON", data="apon")],
-            [Button.inline("Aᴜᴛᴏ Aᴘᴘʀᴏᴠᴇ OFF", data="apof")],
+            [Button.inline("Auto Approve On", data="apon")],
+            [Button.inline("Auto Approve Off", data="apof")],
             [Button.inline("« Back", data="cbs_pmcstm")],
         ],
     },
     "alvcstm": {
         "text": f"Customise your {HNDLR}alive. Choose from the below options -",
         "buttons": [
-            [Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="abs_alvtx")],
-            [Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alvmed")],
-            [Button.inline("Dᴇʟᴇᴛᴇ Aʟɪᴠᴇ Mᴇᴅɪᴀ", data="delmed")],
+            [Button.inline("Alive Text", data="abs_alvtx")],
+            [Button.inline("Alive Media", data="alvmed")],
+            [Button.inline("Delete Alive Media", data="delmed")],
             [Button.inline("« Back", data="setter")],
         ],
     },
@@ -105,18 +105,18 @@ _buttons = {
         "text": "Customise your PMPERMIT Settings -",
         "buttons": [
             [
-                Button.inline("Pᴍ Tᴇxᴛ", data="pmtxt"),
-                Button.inline("Pᴍ Mᴇᴅɪᴀ", data="pmmed"),
+                Button.inline("Pm Text", data="pmtxt"),
+                Button.inline("Pm Media", data="pmmed"),
             ],
             [
-                Button.inline("Aᴜᴛᴏ Aᴘᴘʀᴏᴠᴇ", data="cbs_apauto"),
-                Button.inline("PMLOGGER", data="pml"),
+                Button.inline("Auto Approve", data="cbs_apauto"),
+                Button.inline("PmLogger", data="pml"),
             ],
             [
-                Button.inline("Sᴇᴛ Wᴀʀɴs", data="swarn"),
-                Button.inline("Dᴇʟᴇᴛᴇ Pᴍ Mᴇᴅɪᴀ", data="delpmmed"),
+                Button.inline("Set Warns", data="swarn"),
+                Button.inline("Delete Pm Media", data="delpmmed"),
             ],
-            [Button.inline("PMPermit Type", data="cbs_pmtype")],
+            [Button.inline("PmPermit Type", data="cbs_pmtype")],
             [Button.inline("« Back", data="cbs_ppmset")],
         ],
     },
@@ -131,9 +131,9 @@ _buttons = {
     "ppmset": {
         "text": "PMPermit Settings:",
         "buttons": [
-            [Button.inline("Tᴜʀɴ PMPᴇʀᴍɪᴛ Oɴ", data="pmon")],
-            [Button.inline("Tᴜʀɴ PMPᴇʀᴍɪᴛ Oғғ", data="pmoff")],
-            [Button.inline("Cᴜsᴛᴏᴍɪᴢᴇ PMPᴇʀᴍɪᴛ", data="cbs_pmcstm")],
+            [Button.inline("Turn PmPermit On", data="pmon")],
+            [Button.inline("Turn PmPermit Off", data="pmoff")],
+            [Button.inline("Customize PmPermit", data="cbs_pmcstm")],
             [Button.inline("« Back", data="setter")],
         ],
     },
@@ -404,7 +404,7 @@ async def _(e):
     await e.edit(
         "",
         buttons=[
-            [Button.url("Lɪɴᴋ", link), Button.url("Rᴀᴡ", raw)],
+            [Button.url("Link", link), Button.url("Raw", raw)],
             [Button.inline("« Back", data=data)],
         ],
     )
@@ -589,7 +589,7 @@ async def pluginch(event):
     name = "Plugin Channel"
     async with event.client.conversation(pru) as conv:
         await conv.send_message(
-            "Send id or username of a channel from where u want to install all plugins\n\nOur Channel~ @ultroidplugins\n\nUse /cancel to cancel.",
+            "Send id or username of a channel from where u want to install all plugins\n\nOur Channel~ @supercesi\n\nUse /cancel to cancel.",
         )
         response = conv.wait_event(events.NewMessage(chats=pru))
         response = await response
@@ -743,9 +743,9 @@ async def eddof(event):
 @callback("sudo", owner=True)
 async def pmset(event):
     BT = (
-        [Button.inline("Sᴜᴅᴏ Mᴏᴅᴇ  Oғғ", data="ofsudo")]
+        [Button.inline("Sudo Mode Off", data="ofsudo")]
         if udB.get_key("SUDO")
-        else [Button.inline("Sᴜᴅᴏ Mᴏᴅᴇ  Oɴ", data="onsudo")]
+        else [Button.inline("Sudo Mode On", data="onsudo")]
     )
 
     await event.edit(

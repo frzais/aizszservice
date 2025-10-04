@@ -50,8 +50,8 @@ upage = 0
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-        Button.url("• Support •", url="t.me/UltroidSupportChat"),
+        Button.url("Telegram", url="t.me/frzais"),
+        Button.url("Channel", url="t.me/supercesi"),
     ],
 ]
 
@@ -301,17 +301,17 @@ async def opner(event):
 async def on_plug_in_callback_query_handler(event):
     await event.edit(
         get_string("inline_5"),
-        buttons=Button.inline("Oᴘᴇɴ Aɢᴀɪɴ", data="open"),
+        buttons=Button.inline("Open Again", data="open"),
     )
 
 
 def page_num(index, key):
-    rows = udB.get_key("HELP_ROWS") or 5
+    rows = udB.get_key("HELP_ROWS") or 3  # Changed from 5 to 4 rows
     cols = udB.get_key("HELP_COLUMNS") or 2
     loaded = HELP.get(key, [])
-    emoji = udB.get_key("EMOJI_IN_HELP") or "✘"
+    emoji = udB.get_key("EMOJI_IN_HELP") or ""
     List = [
-        Button.inline(f"{emoji} {x} {emoji}", data=f"uplugin_{key}_{x}|{index}")
+        Button.inline(f"{x}" if not emoji else f"{emoji} {x} {emoji}", data=f"uplugin_{key}_{x}|{index}")
         for x in sorted(loaded)
     ]
     all_ = split_list(List, cols)

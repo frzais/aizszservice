@@ -20,8 +20,8 @@ async def ultroid_menu(ult):
         # Fallback simple menu
         buttons = [
             [
-                Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-                Button.url("• Support •", url="t.me/UltroidSupportChat"),
+                Button.url("Telegram", url="t.me/frzais"),
+                Button.url("Channel", url="t.me/supercesi"),
             ],
             [Button.inline(get_string("help_10"), data="close")],
         ]
@@ -36,8 +36,8 @@ async def repo_links(ult):
     text += "- Support: t.me/UltroidSupportChat"
     buttons = [
         [
-            Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-            Button.url("• Support •", url="t.me/UltroidSupportChat"),
+            Button.url("Telegram", url="t.me/frzais"),
+            Button.url("Channel", url="t.me/supercesi"),
         ]
     ]
     await ult.eor(text, buttons=buttons, link_preview=False)

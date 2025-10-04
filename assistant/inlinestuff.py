@@ -32,8 +32,8 @@ from . import _ult_cache
 
 SUP_BUTTONS = [
     [
-        Button.url("• Repo •", url="https://github.com/TeamUltroid/Ultroid"),
-        Button.url("• Support •", url="t.me/UltroidSupportChat"),
+        Button.url("Telegram", url="t.me/frzais"),
+        Button.url("Channel", url="t.me/supercesi"),
     ],
 ]
 
@@ -89,9 +89,9 @@ async def _(e):
                     thumb=wb(ofox, 0, "image/jpeg", []),
                     link_preview=True,
                     buttons=[
-                        Button.url("Dᴏᴡɴʟᴏᴀᴅ", url=f"{link}"),
+                        Button.url("Download", url=f"{link}"),
                         Button.switch_inline(
-                            "Sᴇᴀʀᴄʜ Aɢᴀɪɴ", query="ofox ", same_peer=True
+                            "Search Again", query="ofox ", same_peer=True
                         ),
                     ],
                 )

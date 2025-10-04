@@ -329,7 +329,7 @@ async def _(event):
         first_name = first_name.replace("\u2060", "")
     last_name = user.last_name
     last_name = (
-        last_name.replace("\u2060", "") if last_name else ("Last Name not found")
+        last_name.replace("\u2060", "") if last_name else ("Pahlawan😜")
     )
     user_bio = full_user.about
     if user_bio is not None:
@@ -339,20 +339,20 @@ async def _(event):
         dc_id = user.photo.dc_id
     else:
         dc_id = "Need a Profile Picture to check this"
-    caption = """<b>Exᴛʀᴀᴄᴛᴇᴅ Dᴀᴛᴀ Fʀᴏᴍ Tᴇʟᴇɢʀᴀᴍ's Dᴀᴛᴀʙᴀsᴇ<b>
-<b>••Tᴇʟᴇɢʀᴀᴍ ID</b>: <code>{}</code>
-<b>••Pᴇʀᴍᴀɴᴇɴᴛ Lɪɴᴋ</b>: <a href='tg://user?id={}'>Click Here</a>
-<b>••Fɪʀsᴛ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Sᴇᴄᴏɴᴅ Nᴀᴍᴇ</b>: <code>{}</code>
-<b>••Bɪᴏ</b>: <code>{}</code>
-<b>••Dᴄ ID</b>: <code>{}</code>
-<b>••Nᴏ. Oғ PғPs</b> : <code>{}</code>
-<b>••Is Rᴇsᴛʀɪᴄᴛᴇᴅ</b>: <code>{}</code>
-<b>••Vᴇʀɪғɪᴇᴅ</b>: <code>{}</code>
-<b>••Is Pʀᴇᴍɪᴜᴍ</b>: <code>{}</code>
-<b>••Is A Bᴏᴛ</b>: <code>{}</code>
-<b>••Gʀᴏᴜᴘs Iɴ Cᴏᴍᴍᴏɴ</b>: <code>{}</code>
-""".format(
+    caption = """<b>📊 Extracted Data From Aizsz Database</b>
+
+<blockquote><b>🆔 Telegram ID</b>: <code>{}</code>
+<b>🔗 Permanent Link</b>: <a href='tg://user?id={}'>Aizsz.Service</a>
+<b>👤 First Name</b>: <code>{}</code>
+<b>👤 Second Name</b>: <code>{}</code>
+<b>📝 Bio</b>: <code>{}</code>
+<b>🌐 DC ID</b>: <code>{}</code>
+<b>📸 No. Of PfPs</b>: <code>{}</code>
+<b>🔒 Is Restricted</b>: <code>{}</code>
+<b>✅ Is Verified</b>: <code>{}</code>
+<b>⭐ Is Premium</b>: <code>{}</code>
+<b>🤖 Is A Bot</b>: <code>{}</code>
+<b>👥 Groups In Common</b>: <code>{}</code></blockquote>""".format(
         user_id,
         user_id,
         first_name,
@@ -367,8 +367,10 @@ async def _(event):
         common_chats,
     )
     if chk := is_gbanned(user_id):
-        caption += f"""<b>••Gʟᴏʙᴀʟʟʏ Bᴀɴɴᴇᴅ</b>: <code>True</code>
-<b>••Rᴇᴀsᴏɴ</b>: <code>{chk}</code>"""
+        caption += f"""
+
+<b>🚫 Globally Banned</b>: <code>True</code>
+<b>📋 Reason</b>: <code>{chk}</code>"""
     await event.client.send_message(
         event.chat_id,
         caption,

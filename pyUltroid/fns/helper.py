@@ -85,7 +85,10 @@ def make_mention(user, custom=None):
 
 
 def inline_mention(user, custom=None, html=False):
-    mention_text = get_display_name(user) or "Deleted Account" if not custom else custom
+    # Use random emoji as mention text instead of name
+    import random
+    emoji_list = ["👤", "🔥", "⭐", "💫", "🚀", "✨", "🎯", "💎", "🌟", "🎪", "🎭", "🎨", "🎵", "🎸", "🎺", "🎻", "🎹", "🎤", "🎧", "🎬", "🎮", "🎲", "🎯", "🎳", "🎰", "🎱", "🎪", "🎨", "🎭", "🎪"]
+    mention_text = random.choice(emoji_list) if not custom else custom
     if isinstance(user, types.User):
         if html:
             return f"<a href=tg://user?id={user.id}>{mention_text}</a>"

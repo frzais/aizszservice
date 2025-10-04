@@ -160,7 +160,7 @@ async def ultroid(event):
 @callback("stat", owner=True)
 async def botstat(event):
     ok = len(udB.get_key("BOT_USERS") or [])
-    msg = """Ultroid Assistant - Stats
+    msg = """Aizsz Service - Stats
 Total Users - {}""".format(
         ok,
     )
