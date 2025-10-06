@@ -166,10 +166,10 @@ async def autobot():
     random_digit = randint(1, 9)
     name = who.first_name + "bot"
     if who.username:
-        username = "aiz7" + "bot"  # Ganti dengan nama yang diinginkan
+        username = "Aizszv1" + "bot"  # Ganti dengan nama yang diinginkan
     else:
         # Format: who.id + random(1-9) + "bot"
-        username = "aiz" + str(random_digit) + "bot"  # Ganti dengan nama yang diinginkan
+        username = "Aizszv1" + str(random_digit) + "bot"  # Ganti dengan nama yang diinginkan
     bf = "@BotFather"
     await ultroid_bot(UnblockRequest(bf))
     await ultroid_bot.send_message(bf, "/cancel")
@@ -204,7 +204,7 @@ async def autobot():
     await ultroid_bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 9)
-        username = "aiz7" + "_bot"  # Ganti dengan nama yang diinginkan
+        username = "Aizszv1" + "_bot"  # Ganti dengan nama yang diinginkan
         await ultroid_bot.send_message(bf, username)
         await asyncio.sleep(1)
         isdone = (await ultroid_bot.get_messages(bf, limit=1))[0].text
