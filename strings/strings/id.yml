@@ -120,9 +120,9 @@ autopic_4: "AUTOPIC tidak digunakan !!"
 autopic_5: "AUTOPIC Berhenti!"
 
 # inline
-inline_1: "[Aizsz Support](t.me/aizszservices)\n\n**Help menu of {}.\n\nPlugins : {}**"
-inline_2: "[Aizsz Support](t.me/aizszservices)\n\n**Help menu of {}.\n\nAddons : {}**"
-inline_3: "[Aizsz Support](t.me/aizszservices)\n\n**Help menu of {}.\n\nAddons : {}\n\nSet `.setdb ADDONS True` and restart to get addons.**"
+inline_1: "[Aizsz Support](t.me/frzais)\n\n**Help menu of {}.\n\nPlugins : {}**"
+inline_2: "[Aizsz Support](t.me/frzais)\n\n**Help menu of {}.\n\nAddons : {}**"
+inline_3: "[Aizsz Support](t.me/frzais)\n\n**Help menu of {}.\n\nAddons : {}\n\nSet `.setdb ADDONS True` and restart to get addons.**"
 inline_4: "**Bot Of {}**\n\n**Main Menu**\n**Plugins : {}**\n**Addons : {}**\n**Total Commands : {}**"
 inline_5: "**Menu Has Been Closed**"
 inline_6: "**Menu Bantuan untuk Voice Chat {}**\n**Perintah yang tersedia:** `{}`\n\n@TeamUltroid"
