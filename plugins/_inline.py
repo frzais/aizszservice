@@ -182,7 +182,7 @@ async def uptd_plugin(event):
                 help_ += "\n"
     if not help_:
         help_ = f"{file} has no Detailed Help!"
-    help_ += "\n© @TeamUltroid"
+    help_ += "\n© @frzais"
     buttons = []
     if inline_pic():
         data = f"sndplug_{key}_{file}"
@@ -322,17 +322,17 @@ def page_num(index, key):
         new_ = fl_[0] if fl_ else []
         index = 0
     if index == 0 and len(fl_) == 1:
-        new_.append([Button.inline("« Back »", data="open")])
+        new_.append([Button.inline("🔃", data="open")])
     else:
         new_.append(
             [
                 Button.inline(
-                    "« Previous",
+                    "⬅️",
                     data=f"uh_{key}_{index-1}",
                 ),
-                Button.inline("« Back »", data="open"),
+                Button.inline("🔃", data="open"),
                 Button.inline(
-                    "Next »",
+                    "➡️",
                     data=f"uh_{key}_{index+1}",
                 ),
             ]

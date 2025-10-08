@@ -31,9 +31,9 @@ async def ultroid_menu(ult):
 @ultroid_cmd(pattern="repo$")
 async def repo_links(ult):
     """Show repository and support links."""
-    text = "**Ultroid Userbot**\n"
-    text += "- GitHub: https://github.com/TeamUltroid/Ultroid\n"
-    text += "- Support: t.me/UltroidSupportChat"
+    text = "**Aizsz Assistant**\n"
+    text += "- GitHub: Chat owner @frzais\n"
+    text += "- Support: t.me/supercesi"
     buttons = [
         [
             Button.url("Telegram", url="t.me/frzais"),
