@@ -189,13 +189,13 @@ if udB.get_key("PMSETTING"):
                     LOG_CHANNEL,
                     _not_approved[miss.id],
                     f"#AutoApproved : <b>OutGoing Message.\nUser : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except KeyError:
                 await asst.send_message(
                     LOG_CHANNEL,
                     f"#AutoApproved : <b>OutGoing Message.\nUser : {inline_mention(miss, html=True)}</b> [<code>{miss.id}</code>]",
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except MessageNotModifiedError:
                 pass
@@ -422,7 +422,7 @@ if udB.get_key("PMSETTING"):
             await eod(
                 apprvpm,
                 f"<b>{inline_mention(user, html=True)}</b> <code>approved to PM!</code>",
-                parse_mode="html",
+                parse_mode="HTML",
             )
             try:
                 await asst.edit_message(
@@ -433,7 +433,7 @@ if udB.get_key("PMSETTING"):
                         Button.inline("Disapprove PM", data=f"disapprove_{user.id}"),
                         Button.inline("Block", data=f"block_{user.id}"),
                     ],
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except KeyError:
                 _not_approved[user.id] = await asst.send_message(
@@ -443,7 +443,7 @@ if udB.get_key("PMSETTING"):
                         Button.inline("Disapprove PM", data=f"disapprove_{user.id}"),
                         Button.inline("Block", data=f"block_{user.id}"),
                     ],
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except MessageNotModifiedError:
                 pass
@@ -468,7 +468,7 @@ if udB.get_key("PMSETTING"):
             await eod(
                 e,
                 f"<b>{inline_mention(user, html=True)}</b> <code>Disapproved to PM!</code>",
-                parse_mode="html",
+                parse_mode="HTML",
             )
             try:
                 await asst.edit_message(
@@ -479,7 +479,7 @@ if udB.get_key("PMSETTING"):
                         Button.inline("Approve PM", data=f"approve_{user.id}"),
                         Button.inline("Block", data=f"block_{user.id}"),
                     ],
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except KeyError:
                 _not_approved[user.id] = await asst.send_message(
@@ -489,7 +489,7 @@ if udB.get_key("PMSETTING"):
                         Button.inline("Approve PM", data=f"approve_{user.id}"),
                         Button.inline("Block", data=f"block_{user.id}"),
                     ],
-                    parse_mode="html",
+                    parse_mode="HTML",
                 )
             except MessageNotModifiedError:
                 pass
@@ -497,7 +497,7 @@ if udB.get_key("PMSETTING"):
             await eod(
                 e,
                 f"<b>{inline_mention(user, html=True)}</b> <code>was never approved!</code>",
-                parse_mode="html",
+                parse_mode="HTML",
             )
 
 
@@ -664,7 +664,7 @@ async def apr_in(event):
                     Button.inline("Block", data=f"block_{uid}"),
                 ],
             ],
-            parse_mode="html",
+            parse_mode="HTML",
         )
         await delete_pm_warn_msgs(uid)
         await event.answer("Approved.", alert=True)
@@ -702,7 +702,7 @@ async def disapr_in(event):
                     Button.inline("Block", data=f"block_{uid}"),
                 ],
             ],
-            parse_mode="html",
+            parse_mode="HTML",
         )
         await event.answer("Disapproved.", alert=True)
     else:
@@ -736,7 +736,7 @@ async def blck_in(event):
     await event.edit(
         f"BLOCKED\n\n<b>{inline_mention(user, html=True)}</b> [<code>{user.id}</code>] <code>was blocked!</code>",
         buttons=Button.inline("UnBlock", data=f"unblock_{uid}"),
-        parse_mode="html",
+        parse_mode="HTML",
     )
     await event.answer("Blocked.", alert=True)
 
@@ -760,7 +760,7 @@ async def unblck_in(event):
     await event.edit(
         f"#UNBLOCKED\n\n<b>{inline_mention(user, html=True)}</b> [<code>{user.id}</code>] <code>was unblocked!</code>",
         buttons=Button.inline("Block", data=f"block_{uid}"),
-        parse_mode="html",
+        parse_mode="HTML",
     )
     await event.answer("Unblocked.", alert=True)
 

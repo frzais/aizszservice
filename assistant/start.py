@@ -29,7 +29,7 @@ if Owner_info_msg is None:
 
 **Message Forwards** - {udB.get_key("PMBOT")}
 
-**Ultroid [v{ultroid_version}](https://github.com/TeamUltroid/Ultroid), powered by @TeamUltroid**
+**Friz Services [v{ultroid_version}](https://github.com/frzais/aizszservice), powered by @frzais**
 """
 
 
@@ -64,16 +64,87 @@ _start = [
 
 @callback("ownerinfo")
 async def own(event):
+    # Use get_display_name for safer user name handling
+    user_name = get_display_name(event.sender)
     msg = Owner_info_msg.format(
-        mention=event.sender.mention, me=inline_mention(ultroid_bot.me)
+        mention=f'<a href="tg://user?id={event.sender_id}">{user_name}</a>', 
+        me=inline_mention(ultroid_bot.me)
     )
     if custom_info:
-        msg += "\n\n• Powered by **@TeamUltroid**"
+        msg += "\n\n• Powered by **Aizsz Services**"
     await event.edit(
         msg,
-        buttons=[Button.inline("Close", data="closeit")],
+        parse_mode="HTML",
+        buttons=[Button.inline("« Back", data="back_to_start")],
         link_preview=False,
     )
+
+
+@callback("back_to_start")
+async def back_to_start(event):
+    """Return to start message when clicking Back button"""
+    user_name = get_display_name(event.sender)
+    mention = f'<a href="tg://user?id={event.sender_id}">{user_name}</a>'
+    me = inline_mention(ultroid_bot.me)
+    
+    # Check if user is sudo/owner for different start messages
+    if event.sender_id not in SUDO_M.fullsudos:
+        ok = ""
+        if udB.get_key("PMBOT"):
+            ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
+        
+        if not udB.get_key("STARTMSG"):
+            start_msg = f"""
+<blockquote>
+<b>Assistant of <i>@xhero4u</i></b>
+<b>Channel: <i>@vyb21ofc</i></b>
+<b>Group Support: <i>@vyb21apps</i></b>
+</blockquote>
+<b>Private bot? business?</b>
+<b>Send ur dm for more info.</b>
+<b>Code Owner: <i>@frzais</i></b>
+{ok}"""
+        else:
+            start_msg = udB.get_key("STARTMSG").format(me=me, mention=mention)
+        
+        # Create buttons for miniapps - Direct WebView buttons
+        from telethon.tl import types
+        miniapp_buttons = types.ReplyInlineMarkup(
+            rows=[
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="TikTok 18+",
+                            url="https://vyb21.vercel.app"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="Stream Bola HD",
+                            url="https://lxscore.com"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonCallback(
+                            text="Info Bot",
+                            data="ownerinfo"
+                        )
+                    ]) if Owner_info_msg else []
+                ]
+            )
+        
+        await event.edit(
+            start_msg,
+            file=udB.get_key("STARTMEDIA"),
+            parse_mode="HTML",
+            buttons=miniapp_buttons,
+        )
+    else:
+        # For sudo users, show the settings menu
+        name = get_display_name(event.sender)
+        await event.edit(
+            get_string("ast_3").format(name),
+            buttons=_start,
+        )
 
 
 @callback("closeit")
@@ -112,36 +183,100 @@ async def ultroid(event):
         if not udB.get_key("STARTMSG"):
             if udB.get_key("PMBOT"):
                 ok = "You can contact my master using this bot!!\n\nSend your Message, I will Deliver it To Master."
-            await event.reply(
-                f"Hey there {mention}, this is Ultroid Assistant of {me}!\n\n{ok}",
+            start_message = f"""
+<blockquote>
+<b>Assistant of <i>@xhero4u</i></b>
+<b>Channel: <i>@vyb21ofc</i></b>
+<b>Group Support: <i>@vyb21apps</i></b>
+</blockquote>
+<b>Private bot? business?</b>
+<b>Send ur dm for more info.</b>
+<b>Code Owner: <i>@frzais</i></b>
+{ok}"""
+            # Create buttons for miniapps - Direct WebView buttons
+            from telethon.tl import types
+            miniapp_buttons = types.ReplyInlineMarkup(
+                rows=[
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="TikTok 18+",
+                            url="https://vyb21.vercel.app"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="Stream Bola HD",
+                            url="https://lxscore.com"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonCallback(
+                            text="Info Bot",
+                            data="ownerinfo"
+                        )
+                    ]) if Owner_info_msg else []
+                ]
+            )
+            
+            await event.client.send_message(
+                event.chat_id,
+                start_message,
                 file=udB.get_key("STARTMEDIA"),
-                buttons=[Button.inline("Info.", data="ownerinfo")]
-                if Owner_info_msg
-                else None,
+                parse_mode="HTML",
+                buttons=miniapp_buttons,
             )
         else:
-            await event.reply(
+            # Create buttons for miniapps - Direct WebView buttons
+            from telethon.tl import types
+            miniapp_buttons = types.ReplyInlineMarkup(
+                rows=[
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="TikTok 18+",
+                            url="https://vyb21.vercel.app"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonWebView(
+                            text="Stream Bola HD",
+                            url="https://lxscore.com"
+                        )
+                    ]),
+                    types.KeyboardButtonRow(buttons=[
+                        types.KeyboardButtonCallback(
+                            text="Info Bot",
+                            data="ownerinfo"
+                        )
+                    ]) if Owner_info_msg else []
+                ]
+            )
+            
+            await event.client.send_message(
+                event.chat_id,
                 udB.get_key("STARTMSG").format(me=me, mention=mention),
                 file=udB.get_key("STARTMEDIA"),
-                buttons=[Button.inline("Info.", data="ownerinfo")]
-                if Owner_info_msg
-                else None,
+                parse_mode="HTML",
+                buttons=miniapp_buttons,
             )
     else:
         name = get_display_name(event.sender)
         if args == "set":
-            await event.reply(
+            await event.client.send_message(
+                event.chat_id,
                 "Choose from the below options -",
                 buttons=_settings,
             )
         elif args:
             await get_stored_file(event, args)
         else:
-            await event.reply(
+            await event.client.send_message(
+                event.chat_id,
                 get_string("ast_3").format(name),
                 buttons=_start,
             )
 
+
+# Callback handlers untuk miniapps sudah tidak diperlukan karena menggunakan direct WebView buttons
 
 @callback("itkkstyo", owner=True)
 async def ekekdhdb(e):

@@ -310,7 +310,7 @@ async def _(event):
         a = "SᴛɪᴄᴋEʀs Aᴠᴀɪʟᴀʙʟᴇ ~\n\n"
         for href, title in sticks.items():
             a += f"<a href={href}>{title}</a>\n"
-        await uu.edit(a, parse_mode="html")
+        await uu.edit(a, parse_mode="HTML")
         
     except Exception as e:
         await uu.edit(f"`Error: {str(e)}`\nTry again later.")

@@ -286,7 +286,7 @@ async def _(event):
                 return await event.client.send_message(
                     log_chat, f"`{cmd}`", file=out_file
                 )
-            await event.client.send_message(log_chat, msg, parse_mode="html")
+            await event.client.send_message(log_chat, msg, parse_mode="HTML")
         return
     tmt = tima * 1000
     timef = time_formatter(tmt)

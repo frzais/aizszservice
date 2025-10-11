@@ -58,25 +58,26 @@ SUP_BUTTONS = [
 # --------------------BUTTONS--------------------#
 
 
-@in_pattern(owner=True, func=lambda x: not x.text)
-async def inline_alive(o):
-    MSG = "• **Aizsz Userbot •**"
-    RES = [
-        await o.builder.article(
-            text=MSG,
-            buttons=SUP_BUTTONS,
-            title="Aizsz Userbot",
-            description="UserBot | Telethon",
-            link_preview=False,
-        )
-    ]
-    await o.answer(
-        RES,
-        private=True,
-        cache_time=300,
-        switch_pm="👥 Aizsz Services",
-        switch_pm_param="start",
-    )
+# DISABLED: Inline handler yang menyebabkan bot melakukan search ketika mengetik username
+# @in_pattern(owner=True, func=lambda x: not x.text)
+# async def inline_alive(o):
+#     MSG = "• **Aizsz Userbot •**"
+#     RES = [
+#         await o.builder.article(
+#             text=MSG,
+#             buttons=SUP_BUTTONS,
+#             title="Aizsz Userbot",
+#             description="UserBot | Telethon",
+#             link_preview=False,
+#         )
+#     ]
+#     await o.answer(
+#         RES,
+#         private=True,
+#         cache_time=300,
+#         switch_pm="👥 Aizsz Services",
+#         switch_pm_param="start",
+#     )
 
 
 @in_pattern("ultd", owner=True)
@@ -243,7 +244,7 @@ async def _(event):
                 [Button.inline("Update Now", data="updatenow")],
                 [Button.inline("« Back", data="ownr")],
             ],
-            parse_mode="html",
+            parse_mode="HTML",
         )
 
 

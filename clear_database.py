@@ -6,7 +6,7 @@ Script sederhana untuk clear database MongoDB
 from pymongo import MongoClient
 
 # MongoDB URI
-MONGO_URI = "mongodb+srv://mandar309:mandar309@frz.6gibfsm.mongodb.net/?retryWrites=true&w=majority&appName=frz"
+MONGO_URI = "mongodb+srv://seoterea_db_user:mandar309@friz.6qnklzk.mongodb.net/?retryWrites=true&w=majority&appName=friz"
 
 def clear_database():
     try:

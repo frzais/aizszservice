@@ -164,12 +164,12 @@ def ultroid_cmd(
                 LOGS.exception(e)
                 date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
                 naam = get_display_name(chat)
-                ftext = "**Ultroid Client Error:** `Forward this to` @UltroidSupportChat\n\n"
-                ftext += "**Py-Ultroid Version:** `" + str(pyver)
-                ftext += "`\n**Ultroid Version:** `" + str(ult_ver)
+                ftext = "**Aizsz Service Error:** `Forward this to` @frzais\n\n"
+                ftext += "**Aizsz Version:** `" + str(pyver)
+                ftext += "`\n**Aizsz Version:** `" + str(ult_ver)
                 ftext += "`\n**Telethon Version:** `" + str(telever)
                 ftext += f"`\n**Hosted At:** `{HOSTED_ON}`\n\n"
-                ftext += "--------START ULTROID CRASH LOG--------"
+                ftext += "--------START AIZSZ SERVICE CRASH LOG--------"
                 ftext += "\n**Date:** `" + date
                 ftext += "`\n**Group:** `" + str(ult.chat_id) + "` " + str(naam)
                 ftext += "\n**Sender ID:** `" + str(ult.sender_id)
@@ -205,7 +205,7 @@ def ultroid_cmd(
                     await ult.edit(
                         f"<b><a href={error_log.message_link}>[An error occurred]</a></b>",
                         link_preview=False,
-                        parse_mode="html",
+                        parse_mode="HTML",
                     )
 
         cmd = None

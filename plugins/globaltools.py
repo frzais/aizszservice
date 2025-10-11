@@ -696,7 +696,7 @@ async def list_gengbanned(event):
         os.remove("gbanned.txt")
         await x.delete()
     else:
-        await x.edit(gbanned_users, parse_mode="html")
+        await x.edit(gbanned_users, parse_mode="HTML")
 
 
 @ultroid_cmd(

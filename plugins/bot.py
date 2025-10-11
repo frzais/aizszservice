@@ -119,7 +119,7 @@ async def lol(ult):
     kk = f" `[{y}]({rep})` "
     if inline:
         kk = f"<a href={rep}>{y}</a>"
-        parse = "html"
+        parse = "HTML"
         als = in_alive.format(
             header,
             f"{ultroid_version} [{HOSTED_ON}]",
@@ -288,7 +288,7 @@ async def inline_alive(ult):
             if ".jpg" in pic:
                 results = [
                     await builder.photo(
-                        pic, text=als, parse_mode="html", buttons=buttons
+                        pic, text=als, parse_mode="HTML", buttons=buttons
                     )
                 ]
             else:
@@ -302,7 +302,7 @@ async def inline_alive(ult):
                         pic,
                         title="Inline Alive",
                         description="@TeamUltroid",
-                        parse_mode="html",
+                        parse_mode="HTML",
                         buttons=buttons,
                     )
                 ]
@@ -311,7 +311,7 @@ async def inline_alive(ult):
             LOGS.exception(er)
     result = [
         await builder.article(
-            "Alive", text=als, parse_mode="html", link_preview=False, buttons=buttons
+            "Alive", text=als, parse_mode="HTML", link_preview=False, buttons=buttons
         )
     ]
     await ult.answer(result)
@@ -343,13 +343,13 @@ async def _(e):
         Link = x.message_link
         await xx.edit(
             f'<strong><a href="{Link}">[ChangeLogs]</a></strong>',
-            parse_mode="html",
+            parse_mode="HTML",
             link_preview=False,
         )
     else:
         await xx.edit(
             f'<code>Your BOT is </code><strong>up-to-date</strong><code> with </code><strong><a href="https://github.com/TeamUltroid/Ultroid/tree/{branch}">[{branch}]</a></strong>',
-            parse_mode="html",
+            parse_mode="HTML",
             link_preview=False,
         )
 

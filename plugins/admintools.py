@@ -443,7 +443,7 @@ async def get_all_pinned(event):
     if not a:
         return await eor(x, get_string("listpin_1"), time=5)
 
-    await x.edit(m + a, parse_mode="html")
+    await x.edit(m + a, parse_mode="HTML")
 
 
 @ultroid_cmd(

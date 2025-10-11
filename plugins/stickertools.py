@@ -302,7 +302,7 @@ async def hehe(args):
                         await conv.get_response()
                         await xx.edit(
                             get_string("sts_7").format(packname),
-                            parse_mode="md",
+                            parse_mode="HTML",
                         )
                         return
                 if is_anim:
@@ -362,7 +362,7 @@ async def hehe(args):
                 await ultroid_bot.send_read_acknowledge(conv.chat_id)
         await xx.edit(
             get_string("sts_12").format(emoji, packname),
-            parse_mode="md",
+            parse_mode="HTML",
         )
         try:
             os.remove(photo)

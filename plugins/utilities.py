@@ -307,9 +307,9 @@ async def _(event):
             if is_gbanned(peer):
                 capt += "\n•<b> Is Gbanned:</b> <code>True</code>"
             if not photo:
-                return await xx.eor(capt, parse_mode="html")
+                return await xx.eor(capt, parse_mode="HTML")
             await event.client.send_message(
-                event.chat_id, capt[:1024], file=photo, parse_mode="html"
+                event.chat_id, capt[:1024], file=photo, parse_mode="HTML"
             )
             await xx.delete()
         except Exception as er:

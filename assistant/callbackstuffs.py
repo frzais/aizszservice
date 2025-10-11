@@ -368,7 +368,7 @@ async def changes(okk):
     await okk.edit(
         changelog_str,
         buttons=button,
-        parse_mode="html",
+        parse_mode="HTML",
     )
 
 
