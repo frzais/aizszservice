@@ -1,14 +1,46 @@
+version: "3.8"
+
 services:
-  worker:
+  aizsz-service:
     build: .
+    container_name: aizsz-service
+    restart: unless-stopped
     environment:
-      REDIS_URI: $REDIS_URI
-      REDIS_PASSWORD: $REDIS_PASSWORD
-      SESSION: $SESSION
-      API_ID: $API_ID  # defaults to None
-      API_HASH: $API_HASH  # defaults to None
-      MONGO_URI: $MONGO_URI  # defaults to None
-      BOT_TOKEN: $BOT_TOKEN # Not mandatory
-      LOG_CHANNEL: $LOG_CHANNEL # Not mandatory
-      DATABASE_URL: $DATABASE_URL  # defaults to None
-      OKTETO_TOKEN: $OKTETO_TOKEN
+      # Telegram API (Required)
+      API_ID: ${API_ID}
+      API_HASH: ${API_HASH}
+      SESSION: ${SESSION}
+
+      # Database (Choose one)
+      REDIS_URI: ${REDIS_URI:-}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+      MONGO_URI: ${MONGO_URI:-}
+      DATABASE_URL: ${DATABASE_URL:-}
+
+      # Optional
+      BOT_TOKEN: ${BOT_TOKEN:-}
+      LOG_CHANNEL: ${LOG_CHANNEL:-}
+      HEROKU_API: ${HEROKU_API:-}
+      HEROKU_APP_NAME: ${HEROKU_APP_NAME:-}
+
+      # Multi-client support
+      SESSION1: ${SESSION1:-}
+      SESSION2: ${SESSION2:-}
+      SESSION3: ${SESSION3:-}
+      SESSION4: ${SESSION4:-}
+      SESSION5: ${SESSION5:-}
+
+      # Timezone
+      TZ: Asia/Jakarta
+
+    volumes:
+      - ./logs:/app/logs
+      - ./plugins_cache:/app/plugins_cache
+      - ./asst.session:/app/asst.session:ro
+
+    networks:
+      - aizsz-network
+
+networks:
+  aizsz-network:
+    driver: bridge
